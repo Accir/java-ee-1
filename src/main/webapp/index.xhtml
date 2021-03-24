@@ -10,26 +10,21 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
 <h:head>
-    <title>Fishing project</title>
+
 </h:head>
 
 <h:body>
-    <div>
-        <div>
-            Home
+    <ui:include src="header.xhtml"/>
+    <div class="main-banner">
+        <div class="banner-text">
+            Keep Calm and Fish On <br/>
+            <button class="banner-button">Learn More</button>
         </div>
-        <div>
-            Lakes
-        </div>
-        <div>
-            Fish
-        </div>
-        <div>
-            Update
-        </div>
+        <img src="resources/images/banner.jpg" alt="man-fishing"/>
     </div>
 </h:body>
 
