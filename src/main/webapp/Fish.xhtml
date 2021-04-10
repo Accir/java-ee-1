@@ -7,5 +7,27 @@
 
 <h:body>
     <ui:include src="header.xhtml"/>
+
+    <h2>Fish: </h2>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Average Size</th>
+            <th>Average Length</th>
+        </tr>
+    <ui:repeat value="#{fishCase.allFish}" var="fish">
+        <tr>
+            <td>#{fish.name}</td>
+            <td>#{fish.averageSize}</td>
+            <td>#{fish.averageLength}</td>
+        </tr>
+    </ui:repeat>
+    </table>
+    <h:form id="fish-form">
+        <h:inputText value="#{fishCase.fishToCreate.name}" required="true" />
+        <h:inputText value="#{fishCase.fishToCreate.averageSize}" required="true" />
+        <h:inputText value="#{fishCase.fishToCreate.averageLength}" required="true" />
+        <h:commandButton value="Add new fish" action="#{fishCase.addFish}"/>
+    </h:form>
 </h:body>
 </html>

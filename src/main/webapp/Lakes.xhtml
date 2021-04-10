@@ -7,5 +7,23 @@
 
 <h:body>
     <ui:include src="header.xhtml"/>
+    <h2>Lakes: </h2>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Size</th>
+        </tr>
+        <ui:repeat value="#{lakes.allLakes}" var="lake">
+            <tr>
+                <td>#{lake.name}</td>
+                <td>#{lake.size}</td>
+            </tr>
+        </ui:repeat>
+    </table>
+    <h:form id="fish-form">
+        <h:inputText value="#{lakes.lakeToCreate.name}" required="true" />
+        <h:inputText value="#{lakes.lakeToCreate.size}" required="true" />
+        <h:commandButton value="Add new lake" action="#{lakes.addLake}"/>
+    </h:form>
 </h:body>
 </html>
