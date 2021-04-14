@@ -34,5 +34,11 @@
                           identity="true"
                           sqlStatement="JDBC"/>
         </table>
+        <table schema="public"
+               tableName="FISHING_RODS">
+            <generatedKey column="id"
+                          identity="true"
+                          sqlStatement="JDBC"/>
+        </table>
     </context>
 </generatorConfiguration>

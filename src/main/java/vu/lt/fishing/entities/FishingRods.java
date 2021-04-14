@@ -12,33 +12,23 @@ import java.util.Objects;
 @Entity
 @Getter
 @Setter
-@Table(name = "FISH")
-@NamedQueries({
-        @NamedQuery(name = "Fish.findAll", query = "select a from Fish as a")
-})
-public class Fish implements Serializable {
+@Table(name = "FISHING_RODS")
+public class FishingRods implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @ManyToOne
-    private Lake lake;
-
     @Column(name="NAME", nullable=false)
     private String name;
 
-    @Column(name="SIZE")
-    private float averageSize;
+    @Column(name="PRICE")
+    private float price;
 
-    @Column(name="LENGTH")
-    private float averageLength;
+    @ManyToMany(mappedBy = "fishingRods")
+    private List<Fish> fish = new ArrayList<>();
 
-    @ManyToMany
-    private List<FishingRods> fishingRods = new ArrayList<>();
-
-    public Fish() {}
-
+    public FishingRods() {}
 
     @Override
     public int hashCode() {

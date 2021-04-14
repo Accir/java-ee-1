@@ -6,6 +6,7 @@
     <typeAliases>
         <typeAlias type="vu.lt.fishing.myBatis.model.Fish" alias="Fish"/>
         <typeAlias type="vu.lt.fishing.myBatis.model.Lake" alias="Lake"/>
+        <typeAlias type="vu.lt.fishing.myBatis.model.FishingRods" alias="FishingRods" />
     </typeAliases>
     <environments default="development">
         <environment id="development">
@@ -18,5 +19,6 @@
     <mappers>
         <mapper resource="myBatisXml/FishMapper.xml"/>
         <mapper resource="myBatisXml/LakeMapper.xml"/>
+        <mapper resource="myBatisXml/FishingRodsMapper.xml" />
     </mappers>
 </configuration>
