@@ -20,7 +20,7 @@ import java.util.Objects;
 public class Lake {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @OneToMany(mappedBy = "lake")

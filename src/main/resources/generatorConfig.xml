@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <context id="FishingDB"
+             targetRuntime="MyBatis3Simple">
+        <jdbcConnection driverClass="org.h2.Driver"
+                        connectionURL="jdbc:h2:~/h2database/FishingDB;AUTO_SERVER=TRUE"
+                        userId="admin"
+                        password="admin">
+        </jdbcConnection>
+
+        <javaModelGenerator targetPackage="myBatis.model"
+                            targetProject="MAVEN"/>
+
+        <sqlMapGenerator targetPackage="myBatis.xml"
+                         targetProject="MAVEN"/>
+        <javaClientGenerator type="XMLMAPPER"
+                             targetPackage="myBatis.dao"
+                             targetProject="MAVEN"/>
+
+
+        <table schema="public"
+               tableName="FISH">
+            <generatedKey column="id"
+                          identity="true"
+                          sqlStatement="JDBC"/>
+        </table>
+        <table schema="public"
+               tableName="LAKE">
+            <generatedKey column="id"
+                          identity="true"
+                          sqlStatement="JDBC"/>
+        </table>
+    </context>
+</generatorConfiguration>

@@ -3,7 +3,8 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 
 <h:body>
     <ui:include src="header.xhtml"/>
@@ -14,13 +15,13 @@
             <th>Size</th>
             <th>Fish</th>
         </tr>
-        <ui:repeat value="#{lakes.allLakes}" var="lake">
+        <ui:repeat value="#{lakesMyBatis.allLakes}" var="lake">
             <tr>
                 <td>#{lake.name}</td>
                 <td>#{lake.size}</td>
                 <td>
                     <ul>
-                        <ui:repeat value="#{lake.fishList}" var="fish">
+                        <ui:repeat value="#{lakesMyBatis.getFish(lake.id)}" var="fish">
                             <li>#{fish.name}</li>
                         </ui:repeat>
                     </ul>
@@ -29,11 +30,10 @@
         </ui:repeat>
     </table>
     <h:form id="fish-form">
-        <h:inputText value="#{lakes.lakeToCreate.name}" required="true" />
-        <h:inputText value="#{lakes.lakeToCreate.size}" required="true" />
-        <h:commandButton value="Add new lake" action="#{lakes.addLake}"/>
+        <h:inputText value="#{lakesMyBatis.lakeToCreate.name}" required="true" />
+        <h:inputText value="#{lakesMyBatis.lakeToCreate.size}" required="true" />
+        <h:commandButton value="Add new lake" action="#{lakesMyBatis.addLake}"/>
     </h:form>
-
-    <h:link outcome="LakesMyBatis" value="myBatis" />
+    <h:link outcome="Lakes" value="JPA" />
 </h:body>
 </html>
