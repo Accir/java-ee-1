@@ -26,8 +26,4 @@ public class FishDAO {
         return em.find(Fish.class, id);
     }
 
-    public Fish update(Fish fish){
-        return em.merge(fish);
-    }
-
 }

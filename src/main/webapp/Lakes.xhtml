@@ -12,11 +12,19 @@
         <tr>
             <th>Name</th>
             <th>Size</th>
+            <th>Fish</th>
         </tr>
         <ui:repeat value="#{lakes.allLakes}" var="lake">
             <tr>
                 <td>#{lake.name}</td>
                 <td>#{lake.size}</td>
+                <td>
+                    <ul>
+                        <ui:repeat value="#{lake.fishList}" var="fish">
+                            <li>#{fish.name}</li>
+                        </ui:repeat>
+                    </ul>
+                </td>
             </tr>
         </ui:repeat>
     </table>

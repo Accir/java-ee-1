@@ -1,6 +1,5 @@
 package vu.lt.fishing.entities;
 
-
 import lombok.Getter;
 import lombok.Setter;
 
@@ -21,6 +20,9 @@ public class Fish implements Serializable {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id;
 
+    @ManyToOne
+    private Lake lake;
+
     @Column(name="NAME", nullable=false)
     private String name;
 
@@ -30,9 +32,6 @@ public class Fish implements Serializable {
     @Column(name="LENGTH")
     private float averageLength;
 
-    @Column(name = "OPT_LOCK_VERSION")
-    @Version
-    private int optLockVersion;
 
     public Fish() {}
 

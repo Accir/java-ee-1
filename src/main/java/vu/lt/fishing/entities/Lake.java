@@ -4,6 +4,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -11,7 +13,9 @@ import java.util.Objects;
 @Setter
 @Table(name = "LAKE")
 @NamedQueries({
-        @NamedQuery(name = "Lake.findAll", query = "select a from Lake as a")
+        @NamedQuery(name = "Lake.findAll", query = "select a from Lake as a"),
+        @NamedQuery(name = "Lake.findNames", query = "select name from Lake"),
+        @NamedQuery(name="Lake.findByName", query = "select o from Lake as o where o.name like :name")
 })
 public class Lake {
 
@@ -19,15 +23,14 @@ public class Lake {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id;
 
+    @OneToMany(mappedBy = "lake")
+    private List<Fish> fishList = new ArrayList<>();
+
     @Column(name="NAME", nullable=false)
     private String name;
 
     @Column(name="SIZE")
     private float size;
-
-    @Column(name = "OPT_LOCK_VERSION")
-    @Version
-    private int optLockVersion;
 
     public Lake() {}
 

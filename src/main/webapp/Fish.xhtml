@@ -3,7 +3,8 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 
 <h:body>
     <ui:include src="header.xhtml"/>
@@ -14,12 +15,14 @@
             <th>Name</th>
             <th>Average Size</th>
             <th>Average Length</th>
+            <th>Lake</th>
         </tr>
     <ui:repeat value="#{fishCase.allFish}" var="fish">
         <tr>
             <td>#{fish.name}</td>
             <td>#{fish.averageSize}</td>
             <td>#{fish.averageLength}</td>
+            <td>#{fish.lake.name}</td>
         </tr>
     </ui:repeat>
     </table>
@@ -27,6 +30,9 @@
         <h:inputText value="#{fishCase.fishToCreate.name}" required="true" />
         <h:inputText value="#{fishCase.fishToCreate.averageSize}" required="true" />
         <h:inputText value="#{fishCase.fishToCreate.averageLength}" required="true" />
+        <h:selectOneMenu value="#{fishCase.selectedLake}" >
+            <f:selectItems value="#{fishCase.allLakes}" />
+        </h:selectOneMenu>
         <h:commandButton value="Add new fish" action="#{fishCase.addFish}"/>
     </h:form>
 </h:body>
