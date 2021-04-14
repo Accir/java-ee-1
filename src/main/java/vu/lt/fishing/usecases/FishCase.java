@@ -3,6 +3,7 @@ package vu.lt.fishing.usecases;
 import lombok.Getter;
 import lombok.Setter;
 import vu.lt.fishing.entities.Fish;
+import vu.lt.fishing.interceptors.LoggedInvocation;
 import vu.lt.fishing.persistence.FishDAO;
 import vu.lt.fishing.persistence.LakeDAO;
 
@@ -13,6 +14,7 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 @Model
+@LoggedInvocation
 public class FishCase {
 
     @Inject
