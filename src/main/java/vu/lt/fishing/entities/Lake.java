@@ -32,6 +32,10 @@ public class Lake {
     @Column(name="SIZE")
     private float size;
 
+    @Version
+    @Column(name = "OPT_LOCK_VERSION")
+    private Integer version;
+
     public Lake() {}
 
     @Override

@@ -28,11 +28,15 @@ public class Fish implements Serializable {
     @Column(name="NAME", nullable=false)
     private String name;
 
-    @Column(name="SIZE")
+    @Column(name="FISH_SIZE")
     private float averageSize;
 
     @Column(name="LENGTH")
     private float averageLength;
+
+    @Version
+    @Column(name = "OPT_LOCK_VERSION")
+    private Integer version;
 
     @ManyToMany
     private List<FishingRods> fishingRods = new ArrayList<>();

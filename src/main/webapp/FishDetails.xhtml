@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:body>
+    <ui:include src="header.xhtml"/>
+    <h4>Name: #{updateFishLake.fish.name}</h4>
+    <h4>Size: #{updateFishLake.fish.averageSize}</h4>
+    <h4>Length: #{updateFishLake.fish.averageLength}</h4>
+    <h4>Lake: #{updateFishLake.fish.lake.name}</h4>
+    <h:form>
+        <h:outputText value="Update fish lake: " />
+        <h:selectOneMenu value="#{updateFishLake.selectedLake}" >
+            <f:selectItem itemLabel="Select Lake" itemValue=""/>
+            <f:selectItems value="#{updateFishLake.allLakes}"
+                           var="lake"
+                           itemValue="#{lake.id}"
+                           itemLabel="#{lake.name}"
+            />
+        </h:selectOneMenu>
+        <h:commandButton value="Update" action="#{updateFishLake.updateFish}"/>
+        <br/>
+        <h:outputText value="Value is not selected!" rendered="#{param['error'] == 'null-value'}" />
+        <h:outputText value="Internal Server Error Occured!" rendered="#{param['error'] == 'internal-error'}" />
+        <h:outputText value="Value was already modified by other user. If you want to override it - try again" rendered="#{param['error'] == 'optimistic-lock-exception'}" />
+    </h:form>
+</h:body>
+</html>

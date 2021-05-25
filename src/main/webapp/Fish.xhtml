@@ -19,13 +19,14 @@
         </tr>
     <ui:repeat value="#{fishCase.allFish}" var="fish">
         <tr>
-            <td>#{fish.name}</td>
+            <td><h:link value="#{fish.name}" outcome="FishDetails?fishId=#{fish.id}"/></td>
             <td>#{fish.averageSize}</td>
             <td>#{fish.averageLength}</td>
             <td>#{fish.lake.name}</td>
         </tr>
     </ui:repeat>
     </table>
+
     <h:form id="fish-form">
         <h:inputText value="#{fishCase.fishToCreate.name}" required="true" />
         <h:inputText value="#{fishCase.fishToCreate.averageSize}" required="true" />
@@ -35,6 +36,8 @@
         </h:selectOneMenu>
         <h:commandButton value="Add new fish" action="#{fishCase.addFish}"/>
     </h:form>
+
+
 
     <h:link outcome="FishMyBatis" value="myBatis" />
 </h:body>

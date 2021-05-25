@@ -20,7 +20,8 @@ public class FishCase {
     @Inject
     private FishDAO fishDAO;
 
-    @Inject LakeDAO lakeDAO;
+    @Inject
+    private LakeDAO lakeDAO;
 
     @Getter @Setter
     private Fish fishToCreate = new Fish();
@@ -33,7 +34,6 @@ public class FishCase {
 
     @Getter @Setter
     private String selectedLake;
-
 
     @PostConstruct
     public void init() {

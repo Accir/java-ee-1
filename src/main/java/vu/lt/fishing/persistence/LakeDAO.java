@@ -32,4 +32,8 @@ public class LakeDAO {
         return (Lake) query.getSingleResult();
     }
 
+    public Lake findById(Integer id) {
+        return em.find(Lake.class, id);
+    }
+
 }
