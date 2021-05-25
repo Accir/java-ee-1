@@ -12,6 +12,16 @@
     <h4>Length: #{updateFishLake.fish.averageLength}</h4>
     <h4>Lake: #{updateFishLake.fish.lake.name}</h4>
     <h:form>
+        <div class="display-inline">
+        <h4>Predicted Fish Count:&#160;</h4>
+        <h:outputText value="#{generateFishCount.countGenerationStatus}" />
+        </div>
+        <h:commandButton value="Predict fish count" disabled="#{generateFishCount.countGenerationRunning}" action="#{generateFishCount.generateNewFishCount()}">
+            <f:param name="fishId" value="#{updateFishLake.fish.id}" />
+        </h:commandButton>
+    </h:form>
+    <br />
+    <h:form>
         <h:outputText value="Update fish lake: " />
         <h:selectOneMenu value="#{updateFishLake.selectedLake}" >
             <f:selectItem itemLabel="Select Lake" itemValue=""/>

@@ -72,3 +72,11 @@ table, th, td {
     border: 1px solid black;
     border-collapse: collapse;
 }
+
+.display-inline {
+    display: flex;
+}
+
+.display-inline h4 {
+    margin-top: 0;
+}
