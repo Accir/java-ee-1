@@ -36,9 +36,10 @@
         </h:selectOneMenu>
         <h:commandButton value="Add new fish" action="#{fishCase.addFish}"/>
     </h:form>
-
-
-
     <h:link outcome="FishMyBatis" value="myBatis" />
+    <br />
+    <h:outputText value="Default total fish count: #{fishCase.totalFishCount}" />
+    <br />
+    <h:outputText value="Alternative total fish count: #{fishCase.alternativeFishCount}" />
 </h:body>
 </html>

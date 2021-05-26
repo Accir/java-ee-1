@@ -9,4 +9,12 @@
     <interceptors>
         <class>vu.lt.fishing.interceptors.MethodLogger</class>
     </interceptors>
+    <alternatives>
+<!--        <class>vu.lt.fishing.services.totalFishCount.AlternativeFishCountCalculator</class>-->
+        <class>vu.lt.fishing.services.totalFishCount.ExtraAlternativeFishCountCalculator</class>
+    </alternatives>
+    <decorators>
+        <class>vu.lt.fishing.services.totalLakeSize.AccurateLakeSize</class>
+        <class>vu.lt.fishing.services.totalLakeSize.IncreaseLakeSize</class>
+    </decorators>
 </beans>

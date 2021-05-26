@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 import vu.lt.fishing.entities.Lake;
 import vu.lt.fishing.persistence.LakeDAO;
+import vu.lt.fishing.services.totalLakeSize.LakeSize;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
@@ -17,15 +18,22 @@ public class Lakes {
     @Inject
     private LakeDAO lakeDAO;
 
+    @Inject
+    private LakeSize lakeSize;
+
     @Getter @Setter
     private Lake lakeToCreate = new Lake();
 
     @Getter
     private List<Lake> allLakes;
 
+    @Getter @Setter
+    private Integer lakeSizeCount;
+
     @PostConstruct
     public void init(){
         loadAllLakes();
+        loadTotalLakeSize();
     }
 
     @Transactional
@@ -36,6 +44,10 @@ public class Lakes {
 
     private void loadAllLakes(){
         this.allLakes = lakeDAO.loadAll();
+    }
+
+    private void loadTotalLakeSize() {
+        this.lakeSizeCount = this.lakeSize.calculateLakeSize(allLakes);
     }
 
 }
